@@ -1,0 +1,6 @@
+<app-welcome></app-welcome>
+<app-products></app-products>
+<div *ngIf="currentUserRole === 'admin'">
+    <app-addproduct></app-addproduct>
+</div>
+<app-footer></app-footer>

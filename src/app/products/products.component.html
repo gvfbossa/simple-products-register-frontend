@@ -1,0 +1,82 @@
+<div class="container">
+    <h2>Products List</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th (click)="sortColumn('name')" (keydown.enter)="sortColumn('name')" tabindex="0">
+            Name
+            <mat-icon class="sort-icon">arrow_drop_down</mat-icon>
+          </th>
+          <th (click)="sortColumn('description')" (keydown.enter)="sortColumn('description')" tabindex="0">
+            Description
+            <mat-icon class="sort-icon">arrow_drop_down</mat-icon>
+          </th>
+          <th (click)="sortColumn('price')" (keydown.enter)="sortColumn('price')" tabindex="0">
+            Price
+            <mat-icon class="sort-icon">arrow_drop_down</mat-icon>
+          </th>
+          <th (click)="sortColumn('category')" (keydown.enter)="sortColumn('category')" tabindex="0">
+            Category
+            <mat-icon class="sort-icon">arrow_drop_down</mat-icon>
+          </th>
+          <th (click)="sortColumn('available')" (keydown.enter)="sortColumn('available')" tabindex="0">
+            Availability
+            <mat-icon class="sort-icon">arrow_drop_down</mat-icon>
+          </th>
+          <th  *ngIf="currentUserRole === 'admin'">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let product of products">
+          <tr [class.edit-mode]="product.editMode">
+            <td>
+              <span *ngIf="!product.editMode">{{ product.name }}</span>
+              <input type="text" [(ngModel)]="product.name" *ngIf="product.editMode">
+            </td>
+  
+            <td>
+              <span *ngIf="!product.editMode">{{ product.description }}</span>
+              <textarea [(ngModel)]="product.description" *ngIf="product.editMode"></textarea>
+            </td>
+  
+            <td>
+              <span class="price" *ngIf="!product.editMode">{{ product.price }}</span>
+              <input type="number" [(ngModel)]="product.price" *ngIf="product.editMode">
+            </td>
+  
+            <td>
+                <span class="category" *ngIf="!product.editMode">{{ product.category?.name }}</span>
+                <select [(ngModel)]="product.category" *ngIf="product.editMode">
+                    <option *ngFor="let category of categories" [value]="category">{{ category.name }}</option>
+                </select>
+            </td>
+  
+            <td>
+                <span class="availability" [ngClass]="{'available': product.available, 'not-available': !product.available}" *ngIf="!product.editMode">{{ product.available ? 'Available' : 'Unavailable' }}</span>
+                <input type="checkbox" [(ngModel)]="product.available" *ngIf="product.editMode">
+            </td>
+
+            <td *ngIf="currentUserRole === 'admin'" class="action-buttons">
+              <ng-container *ngIf="!product.editMode">
+                <button mat-icon-button (click)="toggleEditMode(product)">
+                  <mat-icon class="btn-edit">edit</mat-icon>
+                </button>
+                <button mat-icon-button (click)="deleteProduct(product)">
+                  <mat-icon class="btn-del">delete</mat-icon>
+                </button>
+              </ng-container>
+  
+              <ng-container *ngIf="product.editMode">
+                <button mat-icon-button (click)="updateProduct(product)">
+                  <mat-icon class="btn-edit">save</mat-icon>
+                </button>
+                <button mat-icon-button (click)="toggleEditMode(product)">
+                  <mat-icon class="btn-del">undo</mat-icon>
+                </button>
+              </ng-container>
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>

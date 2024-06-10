@@ -1,0 +1,30 @@
+<div class="holder">
+    <div class="container">
+        <h3>Add a New Product</h3>
+        <form (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="productName">Product Name</label><br>
+                <input type="text" class="form-control" id="name" name="name" required [(ngModel)]="newProduct.name">
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label><br>
+                <textarea id="description" name="description" class="form-control" required [(ngModel)]="newProduct.description"></textarea>            
+            </div>
+            <div class="form-group">
+                <label for="price">Price</label><br>
+                <input type="number" id="price" name="price" required [(ngModel)]="newProduct.price" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="category">Category</label>
+                <select id="category" name="category" class="form-control" required [(ngModel)]="newProduct.category">
+                    <option *ngFor="let category of categories" [value]="category.name">{{ category.name }}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="available">Available</label><br>
+                <input type="checkbox" id="available" name="available" [(ngModel)]="newProduct.available" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">Add Product</button>
+        </form>
+    </div>
+</div>

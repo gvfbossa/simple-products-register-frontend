@@ -1,0 +1,18 @@
+.footer {
+    background-color: darkblue;
+    padding: 20px;
+    text-align: center;
+    height: auto;
+  }
+  
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .author, .company {
+    color: #f0f0f0;
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  

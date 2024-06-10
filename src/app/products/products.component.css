@@ -1,0 +1,77 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: auto;
+  text-align: center;
+  background-color: #f0f0f0;
+  padding: 3vh;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th, .table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.table th {
+  background-color: gray;
+  color: white;
+  text-align: left;
+}
+
+.table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.table tr:hover {
+  background-color: #ddd;
+}
+
+.action-buttons button {
+  margin-right: 1vw;
+}
+
+.price {
+  color: red;
+}
+
+.category {
+  color: #0056b3;
+}
+
+.available {
+  color: green;
+}
+
+.not-available {
+  color: red;
+}
+
+.btn-edit {
+  color: goldenrod;
+}
+
+.btn-del {
+  color: red;
+}
+
+.edit-mode input[type="text"],
+.edit-mode input[type="number"],
+.edit-mode textarea,
+.edit-mode input[type="checkbox"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.sort-icon {
+  color: #d3d3d3;
+}
