@@ -10,9 +10,13 @@
     flex-direction: column;
   }
   
-  .author, .company {
+  .author, .company, .link {
     color: #f0f0f0;
     font-size: 14px;
     margin-bottom: 5px;
+    text-decoration: none;
   }
-  
+
+  .link {
+    font-weight: bold;
+  }
