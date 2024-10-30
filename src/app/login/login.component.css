@@ -9,7 +9,7 @@
 }
 
 .logo {
-  width: 100px;
+  width:15rem;
   margin-bottom: 20px;
 }
 
@@ -20,6 +20,11 @@
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   background-color: #d3d3d3;
+}
+
+.login-info-container {
+  display: flex;
+  justify-content: space-between;
 }
 
 .container h3 {
@@ -56,4 +61,19 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
   background-color: #0056b3;
+}
+
+.info {
+  display: flex;
+  color: #007bff;
+  position: relative;
+}
+
+.info:hover {
+  color: #0056b3;
+  cursor: pointer;
+}
+
+.custom-tooltip {
+  white-space: nowrap;
 }

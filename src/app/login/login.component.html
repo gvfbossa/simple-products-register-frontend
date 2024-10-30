@@ -1,14 +1,23 @@
 <div class="holder">
-    <img class="logo" src="../../assets/images/logo.png" alt="Qima" />
+    <img class="logo" src="../../assets/images/logo.png" alt="Bossa Web Solutions" />
     <div class="container">
-        <h3>Login</h3>
+        <div class="login-info-container">
+            <h3>Login</h3>
+            <mat-icon
+                    class="info"
+                    [matTooltip]="tooltipText"
+                    matTooltipClass="custom-tooltip">
+                info
+            </mat-icon>
+
+        </div>
         <form (ngSubmit)="onSubmit()">
             <div class="form-group">
-                <label for="username">Username:</label><br>
+                <label for="username">Usuário:</label><br>
                 <input type="text" id="username" name="username" [(ngModel)]="username" class="form-control">
             </div>
             <div class="form-group">
-                <label for="password">Password:</label><br>
+                <label for="password">Senha:</label><br>
                 <input type="password" id="password" name="password" [(ngModel)]="password" class="form-control">
             </div>
             <button type="submit" class="btn btn-primary">Login</button>

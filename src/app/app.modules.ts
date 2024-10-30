@@ -9,6 +9,7 @@ import { AddproductComponent } from './addproduct/addproduct.component'
 import { FooterComponent } from './footer/footer.component'
 import { ProductService } from './services/product.service'
 import { MatIconModule } from '@angular/material/icon'
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { AuthService } from './services/auth.service'
 
 @NgModule({
@@ -19,6 +20,7 @@ import { AuthService } from './services/auth.service'
     BrowserModule,
     CommonModule,
     MatIconModule,
+    MatTooltipModule,
     LoginComponent,
     WelcomeComponent,
     AddproductComponent,

@@ -1,6 +1,6 @@
 <div class="container">
-    <h1>Welcome to the Products</h1>
-    <p class="logged">You are logged in as <span [class.user-role]="currentUserRole === 'user'" [class.admin-role]="currentUserRole === 'admin'">{{ currentUserRole }}</span></p>
-    <p>On this page you can see all the products as well as adding new ones, updating or deleting them</p>
-    <button (click)="logout()">Logout</button>
+    <h1>Boas Vindas ao Cadastro de Produtos</h1>
+    <p class="logged">Usuário logado: <span [class.user-role]="currentUserRole === 'user'" [class.admin-role]="currentUserRole === 'admin'">{{ currentUserRole }}</span></p>
+    <p>Nesta página você pode ver todos os produtos, cadastrar novos ou remover existentes</p>
+    <button (click)="logout()">Desconectar</button>
 </div>

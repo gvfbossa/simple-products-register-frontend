@@ -1,29 +1,29 @@
 <div class="container">
-    <h2>Products List</h2>
+    <h2>Lista de Produtos</h2>
     <table class="table">
       <thead>
         <tr>
           <th (click)="sortColumn('name')" (keydown.enter)="sortColumn('name')" tabindex="0">
-            Name
+            Nome
             <mat-icon class="sort-icon">arrow_drop_down</mat-icon>
           </th>
           <th (click)="sortColumn('description')" (keydown.enter)="sortColumn('description')" tabindex="0">
-            Description
+            Descrição
             <mat-icon class="sort-icon">arrow_drop_down</mat-icon>
           </th>
           <th (click)="sortColumn('price')" (keydown.enter)="sortColumn('price')" tabindex="0">
-            Price
+            Preço
             <mat-icon class="sort-icon">arrow_drop_down</mat-icon>
           </th>
           <th (click)="sortColumn('category')" (keydown.enter)="sortColumn('category')" tabindex="0">
-            Category
+            Categoria
             <mat-icon class="sort-icon">arrow_drop_down</mat-icon>
           </th>
           <th (click)="sortColumn('available')" (keydown.enter)="sortColumn('available')" tabindex="0">
-            Availability
+            Disponibilidade
             <mat-icon class="sort-icon">arrow_drop_down</mat-icon>
           </th>
-          <th  *ngIf="currentUserRole === 'admin'">Actions</th>
+          <th  *ngIf="currentUserRole === 'admin'">Ações</th>
         </tr>
       </thead>
       <tbody>
@@ -52,7 +52,7 @@
             </td>
   
             <td>
-                <span class="availability" [ngClass]="{'available': product.available, 'not-available': !product.available}" *ngIf="!product.editMode">{{ product.available ? 'Available' : 'Unavailable' }}</span>
+                <span class="availability" [ngClass]="{'available': product.available, 'not-available': !product.available}" *ngIf="!product.editMode">{{ product.available ? 'Disponível' : 'Indisponível' }}</span>
                 <input type="checkbox" [(ngModel)]="product.available" *ngIf="product.editMode">
             </td>
 

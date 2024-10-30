@@ -1,4 +1,6 @@
 import { Component } from '@angular/core'
+import { MatIcon } from '@angular/material/icon'
+import { MatTooltip } from '@angular/material/tooltip'
 import { FooterComponent } from '../footer/footer.component'
 import { AuthService } from '../services/auth.service'
 import { FormsModule } from '@angular/forms'
@@ -9,7 +11,9 @@ import { Router } from '@angular/router'
   standalone: true,
   imports: [
     FooterComponent,
-    FormsModule
+    FormsModule,
+    MatIcon,
+    MatTooltip
   ],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
@@ -17,6 +21,7 @@ import { Router } from '@angular/router'
 export class LoginComponent {
   username: string = ''
   password: string = ''
+  tooltipText: string = 'User: user - Password: 1234 \n User: admin - Password: admin'
 
   constructor(private authService: AuthService, private router: Router) { }
 
