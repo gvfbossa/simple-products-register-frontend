@@ -1,79 +1,86 @@
-.holder {
+/* LOGIN */
+.login {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: #f0f0f0;
   width: 100%;
-  height: 90%;
+  height: 90vh;
 }
 
-.logo {
-  width:15rem;
-  margin-bottom: 20px;
+/* LOGO */
+.login__logo {
+  width: 15rem;
+  margin-bottom: 1rem;
 }
 
-.container {
+/* LOGIN SECTION CONTAINER */
+.login__container {
   width: 20%;
-  padding: 20px;
+  padding: 2rem;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 0.5rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   background-color: #d3d3d3;
 }
 
-.login-info-container {
+/* INFO SECTION */
+.login__info {
   display: flex;
   justify-content: space-between;
 }
 
-.container h3 {
-  margin-bottom: 20px;
+.login__title {
+  margin-bottom: 2rem;
+  margin-top: 0;
+  font-size: 1.3rem;
 }
 
-.form-group {
-  margin-bottom: 20px;
-}
-
-label {
-  font-weight: bold;
-}
-
-input[type="text"],
-input[type="password"] {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box;
-}
-
-button[type="submit"] {
-  width: 100%;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  background-color: #007bff;
-  color: #fff;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-button[type="submit"]:hover {
-  background-color: #0056b3;
-}
-
-.info {
+.login__icon {
   display: flex;
   color: #007bff;
   position: relative;
-}
-
-.info:hover {
-  color: #0056b3;
   cursor: pointer;
 }
 
-.custom-tooltip {
+.login__icon:hover {
+  color: #0056b3;
+}
+
+.login__tooltip {
   white-space: nowrap;
+}
+
+/* FORM SECTION */
+.login__form-group {
+  margin-bottom: 2rem;
+}
+
+.login__label {
+  font-weight: bold;
+}
+
+.login__input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 0.3rem;
+  box-sizing: border-box;
+}
+
+/* SUBMIT BUTTON */
+.login__button {
+  width: 100%;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.3rem;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.login__button:hover {
+  background-color: #0056b3;
 }

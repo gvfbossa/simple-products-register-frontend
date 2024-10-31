@@ -1,61 +1,91 @@
-.holder {
+/* ADD PRODUCT COMPONENT ROOT */
+.add-product {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80vh;
   background-color: #f0f0f0;
+  padding-bottom: 10rem;
 }
 
-.container {
+/* ADD PRODUCT CONTAINER */
+.add-product__container {
   width: 20%;
-  border: 1px solid #ccc;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border: 0.1rem solid #ccc;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0.1rem rgba(0, 0, 0, 0.1);
   background-color: #d3d3d3;
-  margin: 10px;
+  margin: 4rem;
 }
 
-.container h3 {
-  margin-bottom: 20px;
+/* ADD PRODUCT TITLE */
+.add-product__title {
+  margin-bottom: 2rem;
+  margin-top: 0;
 }
 
-.form-group {
-  margin-bottom: 20px;
+/* FORM GROUP */
+.add-product__form-group {
+  margin-bottom: 1rem;
 }
 
-label {
+/* FORM LABEL */
+.add-product__label {
   font-weight: bold;
 }
 
-input[type="text"],
-input[type="number"],
-select,
-textarea {
+/* FORM INPUTS */
+.add-product__input,
+.add-product__textarea,
+.add-product__input-checkbox,
+.add-product__button {
   width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  padding: 0.8rem;
+  border: 0.1rem solid #ccc;
+  border-radius: 0.5rem;
   box-sizing: border-box;
 }
 
-button[type="submit"] {
-  width: 100%;
-  padding: 10px;
+.add-product__textarea {
+  resize: vertical;
+}
+
+/* AVAILABILITY CONTAINER */
+.add-product__availability-container {
+  display: flex;
+  flex-direction: column;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+/* CHECKBOX */
+.add-product__input-checkbox {
+  margin-top: 0.5rem;
+  margin-left: 0;
+  padding-left: 0;
+  height: 1.2rem;
+  width: 1.2rem;
+}
+
+
+/* SUBMIT BUTTON */
+.add-product__button {
+  padding: 0.6rem;
   border: none;
-  border-radius: 5px;
+  border-radius: 0.3rem;
   background-color: #007bff;
   color: #fff;
-  font-size: 16px;
+  font-size: 1.3rem;
   cursor: pointer;
 }
 
-button[type="submit"]:hover {
+.add-product__button:hover {
   background-color: #0056b3;
 }
 
+/* MEDIA QUERY */
 @media (max-width: 768px) {
-  .container {
-      width: 80%;
+  .add-product__container {
+    width: 80%;
   }
 }

@@ -1,6 +1,13 @@
-<div class="container">
-    <h1>Boas Vindas ao Cadastro de Produtos</h1>
-    <p class="logged">Usuário logado: <span [class.user-role]="currentUserRole === 'user'" [class.admin-role]="currentUserRole === 'admin'">{{ currentUserRole }}</span></p>
-    <p>Nesta página você pode ver todos os produtos, cadastrar novos ou remover existentes</p>
-    <button (click)="logout()">Desconectar</button>
+<div class="welcome">
+    <h1 class="welcome__title">Boas Vindas ao Cadastro de Produtos</h1>
+    <p class="welcome__logged">Usuário logado: 
+      <span 
+        class="welcome__user-role" 
+        [class.welcome__user-role--user]="currentUserRole === 'user'" 
+        [class.welcome__user-role--admin]="currentUserRole === 'admin'">
+        {{ currentUserRole }}
+      </span>
+    </p>
+    <p class="welcome__description">Nesta página você pode ver todos os produtos, cadastrar novos ou remover existentes</p>
+    <button class="welcome__button" (click)="logout()">Desconectar</button>
 </div>

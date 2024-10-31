@@ -1,30 +1,32 @@
-<div class="holder">
-    <div class="container">
-        <h3>Adicionar Novo Produto</h3>
-        <form (ngSubmit)="onSubmit()">
-            <div class="form-group">
-                <label for="productName">Nome</label><br>
-                <input type="text" class="form-control" id="name" name="name" required [(ngModel)]="newProduct.name">
+<div class="add-product">
+    <div class="add-product__container">
+        <h3 class="add-product__title">Adicionar Novo Produto</h3>
+        <form class="add-product__form" (ngSubmit)="onSubmit()">
+            <div class="add-product__form-group">
+                <label class="add-product__label" for="productName">Nome</label>
+                <input type="text" class="add-product__input" id="name" name="name" required [(ngModel)]="newProduct.name">
             </div>
-            <div class="form-group">
-                <label for="description">Descrição</label><br>
-                <textarea id="description" name="description" class="form-control" required [(ngModel)]="newProduct.description"></textarea>            
+            <div class="add-product__form-group">
+                <label class="add-product__label" for="description">Descrição</label>
+                <textarea id="description" name="description" class="add-product__input add-product__textarea" required [(ngModel)]="newProduct.description"></textarea>            
             </div>
-            <div class="form-group">
-                <label for="price">Preço</label><br>
-                <input type="number" id="price" name="price" required [(ngModel)]="newProduct.price" class="form-control">
+            <div class="add-product__form-group">
+                <label class="add-product__label" for="price">Preço</label>
+                <input type="number" id="price" name="price" required [(ngModel)]="newProduct.price" class="add-product__input">
             </div>
-            <div class="form-group">
-                <label for="category">Categoria</label>
-                <select id="category" name="category" class="form-control" required [(ngModel)]="newProduct.category">
+            <div class="add-product__form-group">
+                <label class="add-product__label" for="category">Categoria</label>
+                <select id="category" name="category" class="add-product__input" required [(ngModel)]="newProduct.category">
                     <option *ngFor="let category of categories" [value]="category.name">{{ category.name }}</option>
                 </select>
             </div>
-            <div class="form-group">
-                <label for="available">Disponibilidade</label><br>
-                <input type="checkbox" id="available" name="available" [(ngModel)]="newProduct.available" class="form-control">
+            <div class="add-product__form-group">
+                <div class="add-product__availability-container">
+                    <label class="add-product__label" for="available">Disponibilidade</label>
+                    <input type="checkbox" id="available" name="available" [(ngModel)]="newProduct.available" class="add-product__input-checkbox">
+                </div>
             </div>
-            <button type="submit" class="btn btn-primary">Adicionar</button>
+            <button type="submit" class="add-product__button">Adicionar</button>
         </form>
     </div>
 </div>

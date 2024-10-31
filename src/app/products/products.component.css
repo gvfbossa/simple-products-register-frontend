@@ -1,4 +1,5 @@
-.container {
+/* PRODUCTS COMPONENT ROOT */
+.products {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -9,69 +10,86 @@
   padding: 3vh;
 }
 
-.table {
+/* PRODUCTS TITLE */
+.products__title {
+  margin-bottom: 2vh;
+}
+
+/* PRODUCTS TABLE */
+.products__table {
   width: 100%;
   border-collapse: collapse;
 }
 
-.table th, .table td {
-  border: 1px solid #ddd;
-  padding: 8px;
-}
-
-.table th {
+.products__table-heading {
   background-color: gray;
   color: white;
   text-align: left;
+  border: 0.1rem solid #ddd;
+  padding: 0.8rem;
 }
 
-.table tr:nth-child(even) {
+.products__table-cell {
+  border: 0.1rem solid #ddd;
+  padding: 0.8rem;
+}
+
+.products__table-row:nth-child(even) {
   background-color: #f2f2f2;
 }
 
-.table tr:hover {
+.products__table-row:hover {
   background-color: #ddd;
 }
 
-.action-buttons button {
-  margin-right: 1vw;
-}
-
-.price {
+/* PRODUCTS PRICE & CATEGORY */
+.products__price {
   color: red;
 }
 
-.category {
+.products__category {
   color: #0056b3;
 }
 
-.available {
+/* PRODUCTS AVAILABILITY */
+.products__availability--available {
   color: green;
 }
 
-.not-available {
+.products__availability--not-available {
   color: red;
 }
 
-.btn-edit {
+/* PRODUCTS ACTION BUTTONS */
+.products__action-buttons button {
+  margin-right: 1vw;
+}
+
+/* PRODUCTS BUTTONS */
+.products__btn--edit, .products__btn--undo {
   color: goldenrod;
 }
 
-.btn-del {
+.products__btn--delete {
   color: red;
 }
 
-.edit-mode input[type="text"],
-.edit-mode input[type="number"],
-.edit-mode textarea,
-.edit-mode input[type="checkbox"] {
+.products__btn--save {
+  color: green;
+}
+
+.products__table-row--edit-mode input[type="text"],
+.products__table-row--edit-mode input[type="number"],
+.products__table-row--edit-mode textarea,
+.products__table-row--edit-mode input[type="checkbox"] {
   width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 0.8rem;
+  border: 0.1rem solid #ccc;
+  border-radius: 0.4rem;
   box-sizing: border-box;
 }
 
-.sort-icon {
+/* PRODUCTS SORT ICON */
+.products__sort-icon {
   color: #d3d3d3;
 }

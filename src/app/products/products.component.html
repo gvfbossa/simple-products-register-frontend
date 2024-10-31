@@ -1,82 +1,93 @@
-<div class="container">
-    <h2>Lista de Produtos</h2>
-    <table class="table">
-      <thead>
-        <tr>
-          <th (click)="sortColumn('name')" (keydown.enter)="sortColumn('name')" tabindex="0">
-            Nome
-            <mat-icon class="sort-icon">arrow_drop_down</mat-icon>
-          </th>
-          <th (click)="sortColumn('description')" (keydown.enter)="sortColumn('description')" tabindex="0">
-            Descrição
-            <mat-icon class="sort-icon">arrow_drop_down</mat-icon>
-          </th>
-          <th (click)="sortColumn('price')" (keydown.enter)="sortColumn('price')" tabindex="0">
-            Preço
-            <mat-icon class="sort-icon">arrow_drop_down</mat-icon>
-          </th>
-          <th (click)="sortColumn('category')" (keydown.enter)="sortColumn('category')" tabindex="0">
-            Categoria
-            <mat-icon class="sort-icon">arrow_drop_down</mat-icon>
-          </th>
-          <th (click)="sortColumn('available')" (keydown.enter)="sortColumn('available')" tabindex="0">
-            Disponibilidade
-            <mat-icon class="sort-icon">arrow_drop_down</mat-icon>
-          </th>
-          <th  *ngIf="currentUserRole === 'admin'">Ações</th>
+<div class="products">
+  <h2 class="products__title">Lista de Produtos</h2>
+  <table class="products__table">
+    <thead class="products__table-head">
+      <tr class="products__table-row">
+        <th 
+          class="products__table-heading" 
+          (click)="sortColumn('name')" 
+          (keydown.enter)="sortColumn('name')" tabindex="0">
+          Nome
+          <mat-icon class="products__sort-icon">arrow_drop_down</mat-icon>
+        </th>
+        <th 
+          class="products__table-heading" 
+          (click)="sortColumn('description')" 
+          (keydown.enter)="sortColumn('description')" tabindex="0">
+          Descrição
+          <mat-icon class="products__sort-icon">arrow_drop_down</mat-icon>
+        </th>
+        <th 
+          class="products__table-heading" 
+          (click)="sortColumn('price')" 
+          (keydown.enter)="sortColumn('price')" tabindex="0">
+          Preço
+          <mat-icon class="products__sort-icon">arrow_drop_down</mat-icon>
+        </th>
+        <th 
+          class="products__table-heading" 
+          (click)="sortColumn('category')" 
+          (keydown.enter)="sortColumn('category')" tabindex="0">
+          Categoria
+          <mat-icon class="products__sort-icon">arrow_drop_down</mat-icon>
+        </th>
+        <th 
+          class="products__table-heading" 
+          (click)="sortColumn('available')" 
+          (keydown.enter)="sortColumn('available')" tabindex="0">
+          Disponibilidade
+          <mat-icon class="products__sort-icon">arrow_drop_down</mat-icon>
+        </th>
+        <th *ngIf="currentUserRole === 'admin'" class="products__table-heading">Ações</th>
+      </tr>
+    </thead>
+    <tbody class="products__table-body">
+      <ng-container *ngFor="let product of products">
+        <tr class="products__table-row products__table-row--edit-mode" [class.products__table-row--edit-mode]="product.editMode">
+          <td class="products__table-cell">
+            <span *ngIf="!product.editMode">{{ product.name }}</span>
+            <input type="text" [(ngModel)]="product.name" *ngIf="product.editMode">
+          </td>
+          <td class="products__table-cell">
+            <span *ngIf="!product.editMode">{{ product.description }}</span>
+            <textarea [(ngModel)]="product.description" *ngIf="product.editMode"></textarea>
+          </td>
+          <td class="products__table-cell">
+            <span class="products__price" *ngIf="!product.editMode">{{ product.price }}</span>
+            <input type="number" [(ngModel)]="product.price" *ngIf="product.editMode">
+          </td>
+          <td class="products__table-cell">
+            <span class="products__category" *ngIf="!product.editMode">{{ product.category?.name }}</span>
+            <select [(ngModel)]="product.category" *ngIf="product.editMode">
+              <option *ngFor="let category of categories" [value]="category">{{ category.name }}</option>
+            </select>
+          </td>
+          <td class="products__table-cell">
+            <span class="products__availability" [ngClass]="{'products__availability--available': product.available, 'products__availability--not-available': !product.available}" *ngIf="!product.editMode">
+              {{ product.available ? 'Disponível' : 'Indisponível' }}
+            </span>
+            <input type="checkbox" [(ngModel)]="product.available" *ngIf="product.editMode">
+          </td>
+          <td *ngIf="currentUserRole === 'admin'" class="products__table-cell products__action-buttons">
+            <ng-container *ngIf="!product.editMode">
+              <button mat-icon-button (click)="toggleEditMode(product)">
+                <mat-icon class="products__btn products__btn--edit">edit</mat-icon>
+              </button>
+              <button mat-icon-button (click)="deleteProduct(product)">
+                <mat-icon class="products__btn products__btn--delete">delete</mat-icon>
+              </button>
+            </ng-container>
+            <ng-container *ngIf="product.editMode">
+              <button mat-icon-button (click)="updateProduct(product)">
+                <mat-icon class="products__btn products__btn--save">save</mat-icon>
+              </button>
+              <button mat-icon-button (click)="toggleEditMode(product)">
+                <mat-icon class="products__btn products__btn--undo">undo</mat-icon>
+              </button>
+            </ng-container>
+          </td>
         </tr>
-      </thead>
-      <tbody>
-        <ng-container *ngFor="let product of products">
-          <tr [class.edit-mode]="product.editMode">
-            <td>
-              <span *ngIf="!product.editMode">{{ product.name }}</span>
-              <input type="text" [(ngModel)]="product.name" *ngIf="product.editMode">
-            </td>
-  
-            <td>
-              <span *ngIf="!product.editMode">{{ product.description }}</span>
-              <textarea [(ngModel)]="product.description" *ngIf="product.editMode"></textarea>
-            </td>
-  
-            <td>
-              <span class="price" *ngIf="!product.editMode">{{ product.price }}</span>
-              <input type="number" [(ngModel)]="product.price" *ngIf="product.editMode">
-            </td>
-  
-            <td>
-                <span class="category" *ngIf="!product.editMode">{{ product.category?.name }}</span>
-                <select [(ngModel)]="product.category" *ngIf="product.editMode">
-                    <option *ngFor="let category of categories" [value]="category">{{ category.name }}</option>
-                </select>
-            </td>
-  
-            <td>
-                <span class="availability" [ngClass]="{'available': product.available, 'not-available': !product.available}" *ngIf="!product.editMode">{{ product.available ? 'Disponível' : 'Indisponível' }}</span>
-                <input type="checkbox" [(ngModel)]="product.available" *ngIf="product.editMode">
-            </td>
-
-            <td *ngIf="currentUserRole === 'admin'" class="action-buttons">
-              <ng-container *ngIf="!product.editMode">
-                <button mat-icon-button (click)="toggleEditMode(product)">
-                  <mat-icon class="btn-edit">edit</mat-icon>
-                </button>
-                <button mat-icon-button (click)="deleteProduct(product)">
-                  <mat-icon class="btn-del">delete</mat-icon>
-                </button>
-              </ng-container>
-  
-              <ng-container *ngIf="product.editMode">
-                <button mat-icon-button (click)="updateProduct(product)">
-                  <mat-icon class="btn-edit">save</mat-icon>
-                </button>
-                <button mat-icon-button (click)="toggleEditMode(product)">
-                  <mat-icon class="btn-del">undo</mat-icon>
-                </button>
-              </ng-container>
-            </td>
-          </tr>
-        </ng-container>
-      </tbody>
-    </table>
-  </div>
+      </ng-container>
+    </tbody>
+  </table>
+</div>
