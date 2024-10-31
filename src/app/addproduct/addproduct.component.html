@@ -1,7 +1,7 @@
 <div class="add-product">
     <div class="add-product__container">
         <h3 class="add-product__title">Adicionar Novo Produto</h3>
-        <form class="add-product__form" (ngSubmit)="onSubmit()">
+        <form class="add-product__form" (ngSubmit)="onSubmit(form)" #form="ngForm">
             <div class="add-product__form-group">
                 <label class="add-product__label" for="productName">Nome</label>
                 <input type="text" class="add-product__input" id="name" name="name" required [(ngModel)]="newProduct.name">
@@ -27,6 +27,9 @@
                 </div>
             </div>
             <button type="submit" class="add-product__button">Adicionar</button>
+            <div *ngIf="formError" class="error-message">
+                Todos os campos devem ser preenchidos.
+            </div>
         </form>
     </div>
 </div>

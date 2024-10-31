@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { CommonModule, NgFor } from '@angular/common'
-import { FormsModule } from '@angular/forms'
+import { FormsModule, NgForm } from '@angular/forms'
 import { ProductService } from '../services/product.service'
 
 @Component({
@@ -16,7 +16,7 @@ import { ProductService } from '../services/product.service'
   styleUrl: './addproduct.component.css'
 })
 
-export class AddproductComponent  implements OnInit {
+export class AddproductComponent implements OnInit {
   newProduct: any = {
     name: '',
     description: '',
@@ -28,14 +28,24 @@ export class AddproductComponent  implements OnInit {
   categories: any[] = []
   products: any[] = []
 
+  formError: boolean = false
+
   constructor(private http: HttpClient, private service: ProductService) {}
 
   ngOnInit(): void {
     this.fetchCategories()
   }
 
-  onSubmit() {
-    this.service.addProduct(this.newProduct);
+  onSubmit(form: NgForm) {  
+    if (!this.newProduct.name.trim() ||
+        !this.newProduct.description.trim() ||
+        this.newProduct.price <= 0 ||
+        !this.newProduct.category.trim()) {
+      this.formError = true
+      return
+    }
+
+    this.service.addProduct(this.newProduct)
     this.newProduct = {
       name: '',
       description: '',
@@ -43,7 +53,9 @@ export class AddproductComponent  implements OnInit {
       category: '',
       available: false
     };
-  }
+    form.resetForm()
+    this.formError = false
+  }  
 
   fetchProducts() {
     this.service.getProducts().subscribe({
@@ -53,7 +65,7 @@ export class AddproductComponent  implements OnInit {
       error: (error) => {
         console.error('Error fetching products:', error)
       }
-    });
+    })
   }
   
   fetchCategories() {
@@ -64,7 +76,7 @@ export class AddproductComponent  implements OnInit {
       error: (error) => {
         console.error('Error fetching categories:', error)
       }
-    });
+    })
   }
 
 }
