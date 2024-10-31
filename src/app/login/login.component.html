@@ -4,9 +4,11 @@
         <div class="login__info">
             <h3 class="login__title">Login</h3>
             <mat-icon
-                    class="login__icon"
-                    [matTooltip]="tooltipText"
-                    matTooltipClass="login__tooltip">
+                class="login__icon"
+                [matTooltip]="tooltipText"
+                matTooltipClass="login__tooltip"
+                (click)="toggleTooltip(tooltip)"
+                #tooltip="matTooltip">
                 info
             </mat-icon>
         </div>

@@ -1,4 +1,4 @@
-/* WELCOME COMPONENT ROOT */
+/* WELCOME */
 .welcome {
   display: flex;
   flex-direction: column;
@@ -41,4 +41,34 @@
 /* WELCOME BUTTON */
 .welcome__button {
   margin-top: 0.1rem;
+}
+
+/* MEDIA */
+@media (max-width: 768px) {
+  /* WELCOME */
+  .welcome {
+    padding: 1vh;
+    padding-right: 0;
+    box-sizing: border-box;
+  }
+
+  /* WELCOME TITLE */
+  .welcome__title {
+    font-size: 1.2rem;
+  }
+
+  /* WELCOME LOGGED INFORMATION */
+  .welcome__logged {
+    font-size: 0.9rem;
+  }
+
+  /* WELCOME DESCRIPTION */
+  .welcome__description {
+    font-size: 1rem;
+  }
+
+  /* WELCOME BUTTON */
+  .welcome__button {
+    margin-top: 0.5rem;
+  }
 }

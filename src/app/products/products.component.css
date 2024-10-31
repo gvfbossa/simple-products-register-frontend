@@ -93,3 +93,66 @@
 .products__sort-icon {
   color: #d3d3d3;
 }
+
+/* MEDIA QUERY FOR SMALL SCREENS */
+@media (max-width: 768px) {
+  /* PRODUCTS COMPONENT */
+  .products {
+    overflow-x: hidden;
+    padding: 0;
+  }
+
+  /* PRODUCTS TABLE */
+  .products__table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    table-layout: fixed;
+    display: table;
+    justify-content: center;
+    align-self: center;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+  }
+
+  /* TABLE ROWS */
+  .products__table-row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    padding: 1rem;
+  }
+
+  /* TABLE CELLS */
+  .products__table-cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+    position: relative;
+    word-wrap: break-word;
+  }
+
+  /* ADD DATA HEADING FOR CELLS */
+  .products__table-cell::before {
+    content: attr(data-heading);
+    font-weight: bold;
+    display: block;
+    margin-right: 1rem;
+    margin-left: 0.3rem;
+  }
+
+  /* HIDE ORIGINAL TABLE HEADINGS */
+  .products__table-heading {
+    display: none;
+  }
+
+  /* REMOVE BORDER FOR FIRST ROW */
+  .products__table-row {
+    border: none;
+  }
+}

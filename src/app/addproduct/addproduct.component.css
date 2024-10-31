@@ -85,7 +85,30 @@
 
 /* MEDIA QUERY */
 @media (max-width: 768px) {
+  .add-product {
+    width: 100vw;
+    overflow-x: hidden;
+  }
+
+  /* ADD PRODUCT CONTAINER */
   .add-product__container {
-    width: 80%;
+    width: 100%;
+  }
+
+  /* ADD PRODUCT TITLE */
+  .add-product__title {
+    font-size: 1.2rem;
+  }
+
+  /* FORM INPUTS */
+  .add-product__input,
+  .add-product__textarea,
+  .add-product__button {
+    padding: 0.6rem;
+  }
+
+  /* SUBMIT BUTTON */
+  .add-product__button {
+    font-size: 1.1rem;
   }
 }

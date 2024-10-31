@@ -44,7 +44,9 @@
   cursor: pointer;
 }
 
-.login__icon:hover {
+.login__icon:hover,
+.login__icon:active,
+.login__icon:focus {
   color: #0056b3;
 }
 
@@ -81,6 +83,48 @@
   cursor: pointer;
 }
 
-.login__button:hover {
+.login__button:hover,
+.login__button:focus,
+.login__button:active {
   background-color: #0056b3;
+}
+
+/* MEDIA */
+@media (max-width: 768px) {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  /* LOGIN */
+  .login {
+    padding: 1rem;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  /* LOGIN SECTION CONTAINER */
+  .login__container {
+    width: 90%;
+    max-width: 100%;
+    padding: 1rem;
+    margin: 0 auto;
+  }
+
+  /* LOGO */
+  .login__logo {
+    width: 8rem;
+    margin-bottom: 1rem;
+  }
+
+  /* INFO SECTION */
+  .login__title {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  /* SUBMIT BUTTON */
+  .login__button {
+    font-size: 1rem;
+  }
 }

@@ -44,31 +44,31 @@
     <tbody class="products__table-body">
       <ng-container *ngFor="let product of products">
         <tr class="products__table-row products__table-row--edit-mode" [class.products__table-row--edit-mode]="product.editMode">
-          <td class="products__table-cell">
+          <td class="products__table-cell" data-heading="Nome">
             <span *ngIf="!product.editMode">{{ product.name }}</span>
             <input type="text" [(ngModel)]="product.name" *ngIf="product.editMode">
           </td>
-          <td class="products__table-cell">
+          <td class="products__table-cell" data-heading="Desc.">
             <span *ngIf="!product.editMode">{{ product.description }}</span>
             <textarea [(ngModel)]="product.description" *ngIf="product.editMode"></textarea>
           </td>
-          <td class="products__table-cell">
+          <td class="products__table-cell" data-heading="Preço">
             <span class="products__price" *ngIf="!product.editMode">{{ product.price }}</span>
             <input type="number" [(ngModel)]="product.price" *ngIf="product.editMode">
           </td>
-          <td class="products__table-cell">
+          <td class="products__table-cell" data-heading="Cat.">
             <span class="products__category" *ngIf="!product.editMode">{{ product.category?.name }}</span>
             <select [(ngModel)]="product.category" *ngIf="product.editMode">
               <option *ngFor="let category of categories" [value]="category">{{ category.name }}</option>
             </select>
           </td>
-          <td class="products__table-cell">
+          <td class="products__table-cell" data-heading="Estoque">
             <span class="products__availability" [ngClass]="{'products__availability--available': product.available, 'products__availability--not-available': !product.available}" *ngIf="!product.editMode">
               {{ product.available ? 'Disponível' : 'Indisponível' }}
             </span>
             <input type="checkbox" [(ngModel)]="product.available" *ngIf="product.editMode">
           </td>
-          <td *ngIf="currentUserRole === 'admin'" class="products__table-cell products__action-buttons">
+          <td *ngIf="currentUserRole === 'admin'" class="products__table-cell products__action-buttons" data-heading="Ações">
             <ng-container *ngIf="!product.editMode">
               <button mat-icon-button (click)="toggleEditMode(product)">
                 <mat-icon class="products__btn products__btn--edit">edit</mat-icon>

@@ -21,9 +21,21 @@ import { Router } from '@angular/router'
 export class LoginComponent {
   username: string = ''
   password: string = ''
+
   tooltipText: string = 'User: user - Password: 1234 \n User: admin - Password: admin'
 
+  tooltipVisible: boolean = false
+  
   constructor(private authService: AuthService, private router: Router) { }
+
+  toggleTooltip(tooltip: MatTooltip): void {
+    this.tooltipVisible = !this.tooltipVisible
+    if (this.tooltipVisible) {
+      tooltip.show()
+    } else {
+      tooltip.hide()
+    }
+  }
 
   onSubmit(): void {
     this.authService.login(this.username, this.password).subscribe({
