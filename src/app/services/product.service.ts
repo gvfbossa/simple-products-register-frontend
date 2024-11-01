@@ -6,8 +6,8 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class ProductService {
-  private productsUrl = 'http://localhost:8080/api/products'
-  private categoriesUrl = 'http://localhost:8080/api/categories'
+  private productsUrl = 'https://simple-products-register-backend.onrender.com/api/products'
+  private categoriesUrl = 'https://simple-products-register-backend.onrender.com/api/categories'
 
   private productsSubject = new BehaviorSubject<any[]>([]);
 
