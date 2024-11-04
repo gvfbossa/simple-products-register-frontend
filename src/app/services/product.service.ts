@@ -6,8 +6,8 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class ProductService {
-  private productsUrl = 'https://simple-products-register-backend.onrender.com/api/products'
-  private categoriesUrl = 'https://simple-products-register-backend.onrender.com/api/categories'
+  private productsUrl = 'https://simple-products-register-backe-cda7cdbc62d7.herokuapp.com/api/products'
+  private categoriesUrl = 'https://simple-products-register-backe-cda7cdbc62d7.herokuapp.com/api/categories'
 
   private productsSubject = new BehaviorSubject<any[]>([]);
 

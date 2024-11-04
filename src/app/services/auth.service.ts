@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
-  private loginUrl = 'https://simple-products-register.onrender.com/login';
+  private loginUrl = 'https://simple-products-register-backe-cda7cdbc62d7.herokuapp.com/login';
   private tokenKey = 'jwtToken';
   private roleKey = 'userRole';
 
